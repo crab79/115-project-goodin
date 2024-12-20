@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import yfinance as yf
@@ -52,4 +53,6 @@ def get_stock_data():
     return jsonify(results)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # 嘗試從環境變數中獲取端口，若無則使用默認端口 5000
+    port = int(os.environ.get('PORT', 5000))  # 默認端口為5000
+    app.run(host='0.0.0.0', port=port, debug=True)  # 綁定到 0.0.0.0，讓外部可訪問
