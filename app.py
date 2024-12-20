@@ -53,6 +53,6 @@ def get_stock_data():
     return jsonify(results)
 
 if __name__ == '__main__':
-    # 嘗試從環境變數中獲取端口，若無則使用默認端口 5000
-    port = int(os.environ.get('PORT', 5000))  # 默認端口為5000
+    # 嘗試從環境變數中獲取端口，若無則使用默認端口
+    port = int(os.environ.get('PORT', 10000))  # 默認端口
     app.run(host='0.0.0.0', port=port, debug=True)  # 綁定到 0.0.0.0，讓外部可訪問
